@@ -1,0 +1,82 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='keywords',content='齐家网')
+        meta(name='description',content='齐家网')
+        meta(name='Robots', content='index')
+        link(rel="shortcut icon",href='')
+        title 详情
+        link(rel='stylesheet',href='../css/index.css')
+        link(rel='stylesheet',href='../css/popup.css')
+    body
+        #header
+            | 详情
+            a(href="#exit")
+                img(src="../imgs/index/exit.png", alt="返回")
+        #product
+            img(src="../imgs/index/product.png", alt="商品图片")
+            #productInfo
+                .name 商品名称
+                .tags
+                    .tag 绿色食品
+                    .tag 绿色食品
+            #award
+                span.award 用户点赞
+                br
+                span.number 1.6k
+        .container#top
+            #note
+                .title 注意事项
+                .content 据98%业主反馈，在齐家网找装修公司，价格更实惠！
+            #description
+                .title 使用说明
+                ol.content
+                    li 请注意使用说明
+                    li 这是第二条使用说明
+                    li 第三条使用说明 
+            #banner
+                .title 图片说明#[span (可左右滑动，点击放大查看图片)]
+                .boxContainer
+                    .bannerbox
+                        .bannerItem
+                            .mask 查看图片
+                            img(src="../imgs/index/description1.jpg", alt="")
+                        .bannerItem
+                            .mask 查看图片
+                            img(src="../imgs/index/description1.jpg", alt="")
+                        .bannerItem
+                            .mask 查看图片
+                            img(src="../imgs/index/description1.jpg", alt="")
+                        .bannerItem
+                            .mask 查看图片
+                            img(src="../imgs/index/description1.jpg", alt="")
+                        .bannerItem
+                            .mask 查看图片
+                            img(src="../imgs/index/description1.jpg", alt="")
+                        .bannerItem
+                            .mask 查看图片
+                            img(src="../imgs/index/description1.jpg", alt="")
+            a#understand(href="#") 知道了
+        .container#bottom
+            #form
+                form(action="#")
+                    .title 提交信息
+                    input#phone(type="text" placeholder="请输入您的手机号")
+                    input#verifyCode(type="text" placeholder="请输入验证码")
+                    a#getCode 获取验证码
+                    #awaitTime 60s
+                    .title 上传图片
+                    input#choose-file(type="file")
+                    .boxContainer
+                        .box.file-list
+                            .bannerItem#uploadImgButton
+                                img(src="../imgs/index/upload.png", alt="上传图片")
+                    input#upload(type="submit")
+        #imgMask
+            img
+        script(src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js")
+        script(src="https://unpkg.com/qiniu-js@2.5.4/dist/qiniu.min.js")
+        script(src="../js/tool.js")
+        script(src="../js/index.js")

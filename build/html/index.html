@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="齐家网">
+    <meta name="description" content="齐家网">
+    <meta name="Robots" content="index">
+    <link rel="shortcut icon" href="">
+    <title>详情</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/popup.css">
+  </head>
+  <body>
+    <div id="header">详情<a href="#exit"><img src="../imgs/index/exit.png" alt="返回"></a></div>
+    <div id="product"><img src="../imgs/index/product.png" alt="商品图片">
+      <div id="productInfo">
+        <div class="name">商品名称</div>
+        <div class="tags">
+          <div class="tag">绿色食品</div>
+          <div class="tag">绿色食品</div>
+        </div>
+      </div>
+      <div id="award"><span class="award">用户点赞</span><br><span class="number">1.6k</span></div>
+    </div>
+    <div class="container" id="top">
+      <div id="note">
+        <div class="title">注意事项</div>
+        <div class="content">据98%业主反馈，在齐家网找装修公司，价格更实惠！</div>
+      </div>
+      <div id="description">
+        <div class="title">使用说明</div>
+        <ol class="content">
+          <li>请注意使用说明</li>
+          <li>这是第二条使用说明</li>
+          <li>第三条使用说明 </li>
+        </ol>
+      </div>
+      <div id="banner">
+        <div class="title">图片说明<span>(可左右滑动，点击放大查看图片)</span></div>
+        <div class="boxContainer">
+          <div class="bannerbox">
+            <div class="bannerItem">
+              <div class="mask">查看图片</div><img src="../imgs/index/description1.jpg" alt="">
+            </div>
+            <div class="bannerItem">
+              <div class="mask">查看图片</div><img src="../imgs/index/description1.jpg" alt="">
+            </div>
+            <div class="bannerItem">
+              <div class="mask">查看图片</div><img src="../imgs/index/description1.jpg" alt="">
+            </div>
+            <div class="bannerItem">
+              <div class="mask">查看图片</div><img src="../imgs/index/description1.jpg" alt="">
+            </div>
+            <div class="bannerItem">
+              <div class="mask">查看图片</div><img src="../imgs/index/description1.jpg" alt="">
+            </div>
+            <div class="bannerItem">
+              <div class="mask">查看图片</div><img src="../imgs/index/description1.jpg" alt="">
+            </div>
+          </div>
+        </div>
+      </div><a id="understand" href="#">知道了</a>
+    </div>
+    <div class="container" id="bottom">
+      <div id="form">
+        <form action="#">
+          <div class="title">提交信息</div>
+          <input id="phone" type="text" placeholder="请输入您的手机号">
+          <input id="verifyCode" type="text" placeholder="请输入验证码"><a id="getCode">获取验证码</a>
+          <div id="awaitTime">60s</div>
+          <div class="title">上传图片</div>
+          <input id="choose-file" type="file">
+          <div class="boxContainer">
+            <div class="box file-list">
+              <div class="bannerItem" id="uploadImgButton"><img src="../imgs/index/upload.png" alt="上传图片"></div>
+            </div>
+          </div>
+          <input id="upload" type="submit">
+        </form>
+      </div>
+    </div>
+    <div id="imgMask"><img></div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/qiniu-js@2.5.4/dist/qiniu.min.js"></script>
+    <script src="../js/tool.js"></script>
+    <script src="../js/index.js"></script>
+  </body>
+</html>

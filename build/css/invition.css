@@ -1,0 +1,403 @@
+body {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+#app {
+  background: url("../imgs/invition/header.png") #fa4d37 no-repeat;
+  background-size: 100%;
+}
+
+.header {
+  padding: 45px 18px 75px;
+}
+.header .btn-rule {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.2);
+  height: 24px;
+  font-size: 12px;
+  line-height: 24px;
+  color: #fff;
+  border-radius: 30px 0 0 30px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.invite-box {
+  position: relative;
+  padding: 0 15px;
+}
+.invite-robbon {
+  position: absolute;
+  width: 312px;
+  height: 100px;
+  left: 50%;
+  top: -60px;
+  margin-left: -156px;
+  background: url("../imgs/invition/ribbon.png") no-repeat;
+  background-size: 100%;
+}
+.invite-content {
+  background: #fff;
+  border-radius: 5px;
+  padding: 30px 20px 0;
+}
+.invite-title {
+  font-size: 18px;
+  color: #8c561f;
+  text-align: center;
+}
+.invite-img {
+  margin: 10px 0;
+}
+.invite-text {
+  width: 100%;
+  height: 45px;
+  background: url("../imgs/invition/ticket.png") no-repeat;
+  background-size: 100% 100%;
+  padding-left: 20%;
+  line-height: 45px;
+  font-weight: 700;
+  text-align: center;
+  font-size: 16px;
+  color: #bb7c48;
+}
+.invite-btn {
+  display: block;
+  width: 100%;
+  height: 90px;
+  line-height: 86px;
+  font-weight: 700;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  background: url("../imgs/invition/button.png") no-repeat;
+  background-size: 100% 100%;
+  border: 0;
+}
+
+.weixin, .QQ {
+  color: #58C867;
+  position: relative;
+  display: inline-block;
+  border: 1px solid #58C867;
+  background: #fff;
+  border-radius: 4px;
+  text-decoration: none !important;
+  padding: 1px 7px;
+  width: 100px;
+  height: 50px;
+  vertical-align: baseline;
+  margin: 0 10px 10px 10px;
+  cursor: pointer;
+}
+.weixin svg, .weixin img, .QQ svg, .QQ img {
+  fill: currentColor;
+  height: 18px;
+  position: relative;
+  top: 3px;
+  margin-right: 5px;
+}
+
+#QQ {
+  border-color: #1296db;
+  color: #1296db;
+  margin-left: 50px;
+}
+
+#weixinQrcode {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 100%;
+  left: 0;
+  display: none;
+}
+
+.steps-box {
+  margin-top: 25px;
+  padding-top: 30px;
+  background: url("../imgs/invition/pic.png") #fff left top no-repeat;
+  background-size: 100%;
+}
+
+#content {
+  background: #f7f7f7;
+}
+
+.card {
+  padding: 10px 15px;
+  background: #fff;
+  margin-bottom: 10px;
+}
+
+.divider {
+  display: table;
+  white-space: nowrap;
+  line-height: 1;
+  text-align: center;
+}
+.divider:after, .divider:before {
+  content: "";
+  display: table-cell;
+  top: 50%;
+  width: 50%;
+  background-repeat: no-repeat;
+  background-size: 32px 10px;
+}
+.divider:before {
+  background-image: url("../imgs/invition/before.png");
+  background-position: 80% 50%;
+}
+.divider:after {
+  background-image: url("../imgs/invition/after.png");
+  background-position: 20% 50%;
+}
+.divider h3 {
+  font-size: 17px;
+  color: #404040;
+  margin: 10px 0;
+}
+
+.my-invite-info {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.my-invite-item {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  text-align: center;
+}
+.my-invite-item b {
+  font-size: 24px;
+  color: #404040;
+  font-family: DINAlternate-Bold;
+}
+.my-invite-item p {
+  font-size: 12px;
+  color: #999;
+}
+.my-invite-records {
+  display: block;
+  margin: 16px 20px 10px;
+  background-image: -webkit-linear-gradient(0deg, #ea3125 30%, #f23526 43%, #fa3827 74%, #fa401d 100%);
+  background-image: -ms-linear-gradient(0deg, #ea3125 30%, #f23526 43%, #fa3827 74%, #fa401d 100%);
+  box-shadow: 0 5px 15px 0 rgba(188, 15, 3, 0.4);
+  font-size: 20px;
+  color: #fff;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+}
+
+.rank-title-box {
+  margin-bottom: 0;
+}
+.rank-title {
+  position: relative;
+}
+.rank-title a {
+  font-size: 12px;
+  color: #ea3125;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  padding: 1px 2px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -10px;
+}
+.rank-content {
+  font-size: 12px;
+  color: #404040;
+  text-align: center;
+}
+.rank-list {
+  margin-bottom: 0;
+  padding: 10px 0;
+}
+.rank-tip {
+  font-size: 12px;
+  color: #fa3a25;
+  padding: 10px 15px;
+  background: #fff;
+}
+
+#rank-user {
+  padding: 10px 0;
+}
+#rank-user .name {
+  font-size: 16px;
+}
+
+.rank-table {
+  width: 100%;
+}
+.rank-table td {
+  padding: 0 15px;
+}
+.rank-table td:first-child {
+  width: 140px;
+  padding-right: 0;
+}
+.rank-table td:nth-child(2) {
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+.rank-table tbody td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.rank-table tbody tr:last-child td {
+  padding-bottom: 0;
+}
+.rank-table tbody .award {
+  font-size: 18px;
+  color: #fc9827;
+}
+.rank-table thead td {
+  font-size: 12px;
+  color: #666;
+  padding-bottom: 10px;
+}
+.rank-table .award {
+  width: 65px;
+  padding-left: 0;
+  text-align: center;
+}
+.rank-table .avatar {
+  float: left;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.rank-table .info {
+  margin-left: 50px;
+}
+.rank-table .info .rank {
+  font-size: 12px;
+  color: #666;
+  line-height: 20px;
+  height: 20px;
+}
+.rank-table .info .name {
+  font-size: 12px;
+  color: #404040;
+  line-height: 24px;
+  height: 24px;
+}
+.rank-table .amount {
+  font-size: 16px;
+  height: 20px;
+  line-height: 20px;
+  color: #404040;
+}
+.rank-table .label {
+  font-size: 12px;
+  color: #fff;
+  background-color: #fc9827;
+  border-radius: 15px;
+  padding: 1px 10px;
+}
+
+#apply {
+  width: 80px;
+  position: fixed;
+  right: 0;
+  bottom: 90px;
+  z-index: 99;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+#apply img {
+  display: block;
+  width: 100%;
+}
+
+.icon-rank {
+  display: inline-block;
+  width: 44px;
+  height: 15px;
+  background-size: 44px 15px;
+  background-repeat: no-repeat;
+}
+
+.icon-rank1 {
+  background-image: url("../imgs/invition/rank1.png");
+}
+
+.icon-rank2 {
+  background-image: url("../imgs/invition/rank2.png");
+}
+
+.icon-rank3 {
+  background-image: url("../imgs/invition/rank3.png");
+}
+
+#mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+#mask .apply-panel {
+  position: relative;
+  max-width: 520px;
+  margin: 35% auto 0 auto;
+}
+#mask .apply-bg {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+}
+#mask .apply-ewm {
+  display: block;
+  width: 40%;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 5%;
+  z-index: 1;
+}
+#mask .apply-close {
+  display: block;
+  margin: auto;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: #000;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 40px;
+}
+#mask .apply-close:before {
+  content: " ";
+}
+
+@media only screen and (max-device-width: 360px) {
+  .rank-table td {
+    padding: 0 10px;
+  }
+
+  .rank-table td:first-child {
+    width: 135px;
+  }
+}
+@media only screen and (min-device-width: 360px) {
+  #mask .apply-panel {
+    margin: 20px auto 0 auto;
+  }
+}
