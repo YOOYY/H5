@@ -1,5 +1,5 @@
 $(function () {
-    var popup = new Popup();
+    var Popup = new _Popup();
 
     document.addEventListener('touchstart', function (event) {
         if (event.touches.length > 1) {
@@ -42,7 +42,7 @@ $(function () {
         timer = '';
     $('#getCode').click(function () {
         $.post(
-            "http://47.111.69.211:8080/api/open/user/sendCaptcha", {
+            "#/api/open/user/sendCaptcha", {
                 phone: $('#phone').val()
             },
             function (result) {
@@ -62,9 +62,9 @@ $(function () {
                         $("#awaitTime").html(awaitTime + 's');
                         awaitTime = awaitTime - 1;
                     }, 1000)
-                    popup.alert("成功消息", "验证码发送成功！");
+                    Popup.alert("成功消息", "验证码发送成功！");
                 } else {
-                    popup.alert("失败消息", result.data || '出错!');
+                    Popup.alert("失败消息", result.data || '出错!');
                 }
             });
     })
@@ -75,11 +75,11 @@ $(function () {
     var observer = {
         next(response) {
             console.log(response);
-            popup.loading(response.total.percent);
+            Popup.loading(response.total.percent);
         },
         error(err) {
             console.log(err);
-            popup.alert("失败消息", "上传图片失败！");
+            Popup.alert("失败消息", "上传图片失败！");
         },
         complete(res) {
             var domain = 'http://download.91wyd.com';
@@ -100,7 +100,7 @@ $(function () {
             var length = imgs.length;
             $(".file-list").width(100 * length + 8 * (length - 1));
             uploadImgs.push(imgLink);
-            popup.sureLoading();
+            Popup.sureLoading();
         }
     }
     var token = '';
@@ -122,7 +122,7 @@ $(function () {
             return false;
         }
         if (curFile && curFile.size > 5 * 1024 * 1024) {
-            popup.alert("上传错误", "文件大小必须小于5M！")
+            Popup.alert("上传错误", "文件大小必须小于5M！")
             return false;
         }
         var config = {
@@ -137,14 +137,14 @@ $(function () {
         };
         console.log(curFile);
         $.get(
-            "http://47.111.69.211:8080/api/uptoken/default/get",
+            "#/api/uptoken/default/get",
             function (result) {
                 if (result.code === 0) {
                     token = result.data, key = getDate() + "/" + curFile.name;
                     var observable = qiniu.upload(curFile, key, token, putExtra, config);
                     var subscription = observable.subscribe(observer) // 上传开始
                 } else {
-                    popup.alert("失败消息", "获取token失败！")
+                    Popup.alert("失败消息", "获取token失败！")
                 }
             }
         );
@@ -156,14 +156,14 @@ $(function () {
             code = codeVerify(),
             taskid = '';
         if (!uploadImgs.length) {
-            popup.alert('提交失败', '请上传图片！');
+            Popup.alert('提交失败', '请上传图片！');
             return false;
         }
         if (phone && code) {
             console.log(taskid, phone, code, uploadImgs);
             $.ajax({
                 type: "POST",
-                url: "http://47.111.69.211:8080/task/submit",
+                url: "#/task/submit",
                 contentType: "application/json;charset=utf-8",
                 data: JSON.stringify({
                     taskid: taskid,
@@ -174,15 +174,15 @@ $(function () {
                 dataType: "json",
                 success: function (result) {
                     if (result.code === 0) {
-                        popup.alert("成功消息", "提交成功!");
+                        Popup.alert("成功消息", "提交成功!");
                         window.location.href = '/';
                     } else {
-                        popup.alert("失败消息", result.data || '提交失败!');
+                        Popup.alert("失败消息", result.data || '提交失败!');
                     }
                 },
                 error: function (result) {
                     console.log(result);
-                    popup.alert("失败消息", '提交失败!');
+                    Popup.alert("失败消息", '提交失败!');
                 }
             });
         };
@@ -231,5 +231,77 @@ $(function () {
         verifyCode.removeClass('fail');
         verifyCode.addClass('success');
         return value;
+    }
+
+    function _Popup() {
+        /* 
+         * alert 弹窗 title、text 必传
+         */
+        var that = this;
+        this.alert = function (title, text) {
+                var model = document.getElementById('model');
+                if (model) {
+                    var content = document.getElementById('alertContent');
+                    content.innerText = text;
+                    model.style.display = 'block';
+                    return
+                }
+                var creatediv = document.createElement('div'); // 创建div
+                creatediv.className = 'model'; // 添加class
+                creatediv.setAttribute('id', 'model'); // 添加ID
+                var contentHtml = '<div class="model_popup" style="">' +
+                    '<div class="popup-ts">' + title + '</div>' +
+                    '<div class="popup-text" id="alertContent">' + text + '</div>' +
+                    '<div class="popup-btn">' +
+                    '	<span class="sure alert_sure" id="sure-popup">确定</span>'
+                    // +'	<span class="cancel" id="cancel-popup">取消</span>'
+                    +
+                    '</div>' +
+                    '</div>'
+                creatediv.innerHTML = contentHtml;
+                document.body.appendChild(creatediv);
+                document.getElementById('sure-popup').addEventListener('click', function () {
+                    that.sureAlert();
+                })
+            },
+
+            this.loading = function (percent) {
+                var model = document.getElementById('loadingModel');
+                if (model) {
+                    var content = document.getElementById('loadingContent');
+                    content.innerText = '加载进度：' + percent + '%';
+                    model.style.display = 'block';
+                    return;
+                }
+                var creatediv = document.createElement('div'); // 创建div
+                creatediv.className = 'model'; // 添加class
+                creatediv.setAttribute('id', 'loadingModel'); // 添加ID
+                var contentHtml = '<div class="model_popup" style="">' +
+                    '<div class="popup-ts">加载中</div>' +
+                    '<div class="popup-text" id="loadingContent">加载进度：' + percent + '%</div>' +
+                    '</div>'
+                creatediv.innerHTML = contentHtml;
+                document.body.appendChild(creatediv);
+            },
+
+            this.sureAlert = function () {
+                var model = document.getElementById('model');
+                model.style.display = 'none'
+            },
+
+            this.sureLoading = function () {
+                var model = document.getElementById('loadingModel');
+                model.style.display = 'none'
+            }
+    }
+
+    function getDate() {
+        var date = new Date();
+        var y = date.getFullYear();
+        var m = date.getMonth() + 1;
+        m = m < 10 ? ('0' + m) : m;
+        var d = date.getDate();
+        d = d < 10 ? ('0' + d) : d;
+        return y + '-' + m + '-' + d;
     }
 })

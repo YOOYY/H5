@@ -21,6 +21,9 @@ gulp.task('pug', () =>
         pretty: true
     }))
     .pipe(gulp.dest(htmlOutPath))
+    .pipe(reload({
+        stream: true
+    }))
 );
 
 //css
@@ -30,13 +33,18 @@ gulp.task('scss', function () {
             throw ('scss转css错误');
         }))
         .pipe(gulp.dest(cssOutPath))
+        .pipe(reload({
+            stream: true
+        }))
 });
 
-gulp.task('reload', () =>
-    gulp.src([htmlOutPath + '/**/*.html', cssOutPath + '/*.css', jsOutPath + '/**/*.js']).pipe(reload({
+gulp.task('js', () =>
+    gulp.src(jsPath + '/**/*.js')
+    .pipe(gulp.dest(jsOutPath))
+    .pipe(reload({
         stream: true
     }))
-)
+);
 
 //服务器
 gulp.task('server', function () {
@@ -50,9 +58,9 @@ gulp.task('server', function () {
             middleware: mock.data()
         }
     });
-    gulp.watch(htmlPath + '/**/*.pug', gulp.series('pug', 'reload'));
-    gulp.watch(cssPath + '/**/*.scss', gulp.series('scss', 'reload'));
-    gulp.watch([htmlPath + '/**/*.html', cssPath + '/**/*.scss', jsPath + '/**/*.js'], gulp.series('reload'));
+    gulp.watch(htmlPath + '/**/*.pug', gulp.series('pug'));
+    gulp.watch(cssPath + '/**/*.scss', gulp.series('scss'));
+    gulp.watch(jsPath + '/**/*.js', gulp.series('js'));
 });
 
-gulp.task('default', gulp.series(['pug', 'scss', 'server']));
+gulp.task('default', gulp.series(['pug', 'scss', 'js', 'server']));

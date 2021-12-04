@@ -1,5 +1,5 @@
 $(function () {
-    var Popup = new Popup();
+    var Popup = new _Popup();
 
     document.addEventListener('touchstart', function (event) {
         if (event.touches.length > 1) {
@@ -233,7 +233,7 @@ $(function () {
         return value;
     }
 
-    function Popup() {
+    function _Popup() {
         /* 
          * alert 弹窗 title、text 必传
          */
